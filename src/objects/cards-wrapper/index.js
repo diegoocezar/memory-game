@@ -13,7 +13,7 @@ function createCardsWrapper() {
     padding-bottom: 10px;
   }
   
-  .cards-wrapper > .memory-card {
+  .cards-wrapper > .memory-card .card {
     margin-top: 14px;
   }`;
 

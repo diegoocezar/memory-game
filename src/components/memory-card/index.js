@@ -3,9 +3,17 @@ function memoryCard() {
 
   const $style = document.createElement("style");
   $style.textContent = `
-  .memory-card {
-    width: 150px;
-    height: 150px;
+  .memory-card{
+    width: 121px;
+    height: 121px;
+    position: relative;
+    margin-bottom: 10px;
+
+    
+  }
+  .memory-card .card {
+    width: 121px;
+    height: 121px;
     background-color: #f25a70;
     border-radius: 20px;
     display: flex;
@@ -14,13 +22,23 @@ function memoryCard() {
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
     position: relative;
     cursor: pointer;
+    position: absolute;
   }
   
-  .memory-card.-turned {
+  .memory-card .card.-turned {
     background-color: #fff;
+  
+  }
+
+  .memory-card.-active .card {
+    display: none;
   }
   
-  .memory-card.-turned::before {
+  .memory-card.-active .card.-turned {
+    display: flex;
+  }
+
+  .card.-turned::before {
     content: "";
     width: 90px;
     height: 90px;
@@ -29,11 +47,11 @@ function memoryCard() {
     border-radius: 50%;
   }
   
-  .memory-card > .icon {
+  .card > .icon {
     width: 90px;
     position: absolute;
   }
-  .memory-card.-turned > .icon {
+  .card.-turned > .icon {
     position: absolute;
     transform: translateY(-14px);
   }
@@ -42,12 +60,25 @@ function memoryCard() {
   $head.insertBefore($style, null);
 
   return ({ src, alt, nameClass }) => `
-    <article class="memory-card ${nameClass}">
+    <div class="memory-card -active" onClick="handleClick(this)">
+      <article class="card -turned">
+        <img 
+            src='${src}' 
+            alt= '${alt}'
+            class='icon' >
+        </img> 
+      </article>
+      <article class="card">
       <img 
-          src='${src}' 
-          alt= '${alt}'
-          class='icon' onClick="handleClick()">
+          src='img/icon-collabcode.png' 
+          alt= 'Mascote da CollabCode'
+          class='icon' ">
       </img> 
-    <article>
+    </article>
+    </div>
   `;
 }
+
+const handleClick = $component => {
+  $component.classList.toggle("-active");
+};

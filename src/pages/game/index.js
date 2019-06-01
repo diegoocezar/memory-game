@@ -28,8 +28,6 @@ const $memorycardSettings = $createMemoryCard({
   nameClass: "-turned"
 });
 
-const handleClick = () => console.log("Ae");
-
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJS);
 $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardJava);
