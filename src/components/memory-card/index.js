@@ -59,8 +59,8 @@ function memoryCard() {
 
   $head.insertBefore($style, null);
 
-  return ({ src, alt, nameClass }) => `
-    <div class="memory-card -active" onClick="handleClick(this)">
+  return ({ src, alt }) => `
+    <div class="memory-card" onClick="handleClick(this)">
       <article class="card -turned">
         <img 
             src='${src}' 
@@ -80,5 +80,18 @@ function memoryCard() {
 }
 
 const handleClick = $component => {
-  $component.classList.toggle("-active");
+  qtdMemoryCardActive < 2 ? $component.classList.add("-active") : "";
+
+  qtdMemoryCardActive === 1
+    ? setTimeout(() => {
+        const $activeMemoryCards = document.querySelectorAll(
+          ".memory-card.-active"
+        );
+
+        $activeMemoryCards.forEach($memoryCard => {
+          $memoryCard.classList.remove("-active");
+        });
+        qtdMemoryCardActive = 0;
+      }, 1500)
+    : "";
 };

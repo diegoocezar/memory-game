@@ -1,3 +1,4 @@
+let qtdMemoryCardActive = 0;
 function createCardsWrapper() {
   const $cardsWrapper = document.createElement("section");
   $cardsWrapper.classList.add("cards-wrapper");
@@ -10,14 +11,20 @@ function createCardsWrapper() {
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 100vw;
   }
   
   .cards-wrapper > .memory-card .card {
-    margin-top: 14px;
+    margin-bottom: 14px;
   }`;
 
   $head.insertBefore($style, null);
+
+  $cardsWrapper.addEventListener("click", () => {
+    qtdMemoryCardActive = $cardsWrapper.querySelectorAll(".memory-card.-active")
+      .length;
+  });
 
   return $cardsWrapper;
 }
