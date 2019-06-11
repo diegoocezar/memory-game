@@ -79,19 +79,43 @@ function memoryCard() {
   `;
 }
 
+let score = 0;
+
+const isWrong = () => {
+  setTimeout(() => {
+    const $activeMemoryCards = document.querySelectorAll(
+      ".memory-card.-active:not(.-right)"
+    );
+    $activeMemoryCards.forEach($memoryCard => {
+      $memoryCard.classList.remove("-active");
+    });
+    qtdMemoryCardActive = 0;
+  }, 1500);
+};
+
 const handleClick = $component => {
   qtdMemoryCardActive < 2 ? $component.classList.add("-active") : "";
 
-  qtdMemoryCardActive === 1
-    ? setTimeout(() => {
-        const $activeMemoryCards = document.querySelectorAll(
-          ".memory-card.-active"
-        );
+  if (qtdMemoryCardActive === 1) {
+    let $selectedCards = document.querySelectorAll(
+      ".memory-card.-active:not(.-right)"
+    );
 
-        $activeMemoryCards.forEach($memoryCard => {
-          $memoryCard.classList.remove("-active");
-        });
-        qtdMemoryCardActive = 0;
-      }, 1500)
-    : "";
+    let card1 = $selectedCards[0]
+      .querySelector(".-turned .icon")
+      .getAttribute("src");
+    let card2 = $selectedCards[1]
+      .querySelector(".-turned .icon")
+      .getAttribute("src");
+
+    if (card1 === card2) {
+      $selectedCards[0].classList.add("-right");
+      $selectedCards[1].classList.add("-right");
+
+      score++;
+      console.log("pontuação: ", score);
+    } else {
+      isWrong();
+    }
+  }
 };
