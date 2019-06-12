@@ -4,16 +4,16 @@ function memoryCard() {
   const $style = document.createElement("style");
   $style.textContent = `
   .memory-card{
-    width: 121px;
-    height: 121px;
+    width: 100px;
+    height: 100px;
     position: relative;
     margin-bottom: 10px;
 
     
   }
   .memory-card .card {
-    width: 121px;
-    height: 121px;
+    width: 100px;
+    height: 100px;
     background-color: #f25a70;
     border-radius: 20px;
     display: flex;
@@ -48,7 +48,7 @@ function memoryCard() {
   }
   
   .card > .icon {
-    width: 90px;
+    width: 80px;
     position: absolute;
   }
   .card.-turned > .icon {
@@ -79,43 +79,41 @@ function memoryCard() {
   `;
 }
 
-let score = 0;
-
-const isWrong = () => {
-  setTimeout(() => {
-    const $activeMemoryCards = document.querySelectorAll(
-      ".memory-card.-active:not(.-right)"
-    );
-    $activeMemoryCards.forEach($memoryCard => {
-      $memoryCard.classList.remove("-active");
-    });
-    qtdMemoryCardActive = 0;
-  }, 1500);
-};
-
 const handleClick = $component => {
-  qtdMemoryCardActive < 2 ? $component.classList.add("-active") : "";
-
-  if (qtdMemoryCardActive === 1) {
-    let $selectedCards = document.querySelectorAll(
-      ".memory-card.-active:not(.-right)"
-    );
-
-    let card1 = $selectedCards[0]
-      .querySelector(".-turned .icon")
-      .getAttribute("src");
-    let card2 = $selectedCards[1]
-      .querySelector(".-turned .icon")
-      .getAttribute("src");
-
-    if (card1 === card2) {
-      $selectedCards[0].classList.add("-right");
-      $selectedCards[1].classList.add("-right");
-
-      score++;
-      console.log("pontuação: ", score);
-    } else {
-      isWrong();
-    }
+  if (!$component.classList.contains("-active")) {
+    activeMemoryCard($component);
+    isRight();
   }
 };
+
+function activeMemoryCard($component) {
+  store.qtdMemoryCardActive < 2 ? $component.classList.add("-active") : "";
+}
+
+function isRight() {
+  if (store.qtdMemoryCardActive === 1) {
+    let $activeMemoryCards = document.querySelectorAll(
+      ".memory-card.-active:not(.-right)"
+    );
+
+    if (
+      $activeMemoryCards[0]
+        .querySelector(".-turned .icon")
+        .getAttribute("src") ===
+      $activeMemoryCards[1].querySelector(".-turned .icon").getAttribute("src")
+    ) {
+      $activeMemoryCards[0].classList.add("-right");
+      $activeMemoryCards[1].classList.add("-right");
+      store.score++;
+
+      console.log("pontuação: ", store.score);
+    } else {
+      setTimeout(() => {
+        $activeMemoryCards.forEach($memoryCard => {
+          $memoryCard.classList.remove("-active");
+        });
+        store.qtdMemoryCardActive = 0;
+      }, 1100);
+    }
+  }
+}
