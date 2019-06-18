@@ -2,30 +2,30 @@
   const $root = document.querySelector("#root");
 
   const $cardsWrapper = createCardsWrapper();
-
-  const $createMemoryCard = memoryCard.create();
+  const createMemoryCard = memoryCard.create();
+  const $scoreBar = scoreBar.create();
 
   let $memoryCard = [];
 
-  const $memoryCardC = $createMemoryCard({
+  const $memoryCardC = createMemoryCard({
     src: "img/icon-c.png",
     alt: "Ícone de um livro da linguagem c++",
     nameClass: "-turned"
   });
 
-  const $memoryCardJS = $createMemoryCard({
+  const $memoryCardJS = createMemoryCard({
     src: "img/icon-js.png",
     alt: "Ícone de um livro da linguagem JS",
     nameClass: "-turned"
   });
 
-  const $memoryCardJava = $createMemoryCard({
+  const $memoryCardJava = createMemoryCard({
     src: "img/icon-java.png",
     alt: "Ícone de um livro da linguagem Java",
     nameClass: "-turned"
   });
 
-  const $memorycardSettings = $createMemoryCard({
+  const $memorycardSettings = createMemoryCard({
     src: "img/icon-settings.png",
     alt: "Ícone de Settings",
     nameClass: "-turned"
@@ -48,5 +48,6 @@
   // $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardC);
   // $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardC);
 
+  $root.insertAdjacentHTML("afterbegin", $scoreBar);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
 })();

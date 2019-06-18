@@ -6,16 +6,16 @@ const memoryCard = (function() {
     const $style = document.createElement("style");
     $style.textContent = `
   .memory-card{
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     position: relative;
     margin-bottom: 10px;
 
     
   }
   .memory-card .card {
-    width: 100px;
-    height: 100px;
+    width: 110px;
+    height: 110px;
     background-color: #f25a70;
     border-radius: 20px;
     display: flex;
@@ -109,7 +109,6 @@ const memoryCard = (function() {
         $activeMemoryCards[0].classList.add("-right");
         $activeMemoryCards[1].classList.add("-right");
         store.score++;
-
         console.log("pontuação: ", store.score);
       } else {
         setTimeout(() => {
