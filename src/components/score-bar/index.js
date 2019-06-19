@@ -8,8 +8,13 @@ const scoreBar = (function() {
       .score-bar {
         background-color: #3a4042;
         height: 40px;
-        text-align: center;
+        width: 70vw;
+        margin-right: auto;
+        margin-left: auto;
+        
+        border-radius: 0 0 20px 20px;
 
+        text-align: center;
         font-family: 'Comfortaa', sans-serif;
       }
 
@@ -23,6 +28,11 @@ const scoreBar = (function() {
     $head.insertBefore($style, null);
   };
 
+  module.updateScore = () => {
+    const $score = document.querySelector(".score");
+    $score.textContent = store.score;
+  };
+
   module.create = () => {
     module._style();
     return `
@@ -33,6 +43,7 @@ const scoreBar = (function() {
   };
 
   return {
-    create: module.create
+    create: module.create,
+    score: module.updateScore
   };
 })();
