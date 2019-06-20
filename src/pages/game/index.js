@@ -4,7 +4,8 @@
   const $cardsWrapper = createCardsWrapper();
   const createMemoryCard = memoryCard.create();
   const $scoreBar = scoreBar.create();
-  const $gameButton = gameButton.create();
+  const $gameButton = gameButton.render();
+  const $gameLayer = gameLayer.render();
 
   let $memoryCard = [];
 
@@ -49,7 +50,8 @@
   // $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardC);
   // $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardC);
 
+  $root.insertAdjacentHTML("beforebegin", $gameLayer);
   $root.insertAdjacentHTML("afterbegin", $scoreBar);
-  $root.insertAdjacentHTML("afterend", $gameButton);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
+  $root.insertAdjacentHTML("beforeend", $gameButton);
 })();

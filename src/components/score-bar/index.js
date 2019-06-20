@@ -9,6 +9,7 @@ const scoreBar = (function() {
         background-color: #3a4042;
         height: 40px;
         width: 70vw;
+        max-width: 250px;
         margin-right: auto;
         margin-left: auto;
         
