@@ -50,20 +50,15 @@ const gameButton = (function() {
     $head.insertBefore($style, null);
   };
 
-  module._blur = ($layer, $button) => {
-    $layer.classList.add("-clicked");
-    $button.classList.add("-clicked");
-  };
-
   module.handleClick = $component => {
     $component.classList.add("-blur");
-    const $layer = document.querySelector(".game-layer");
+    const $gameLayer = document.querySelector(".game-layer");
     setInterval(() => {
       $component.classList.add("-clicked");
-      $layer.classList.add("-blur");
+      $gameLayer.classList.add("-blur");
     }, 1000);
 
-    setInterval(() => $layer.classList.add("-clicked"), 1500);
+    setInterval(() => $gameLayer.classList.add("-clicked"), 1500);
   };
 
   module.render = () => {
