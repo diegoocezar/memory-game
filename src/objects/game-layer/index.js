@@ -1,41 +1,33 @@
 const gameLayer = (function() {
   const module = {};
 
-  module._style = () => {
-    const $head = document.querySelector("head");
-    const $style = document.createElement("style");
+  module.handleClick = $component => {
+    // Seleciona os filhos do gameLayer e cria um array
+    const $children = $component.querySelectorAll("*");
 
-    $style.textContent = `
-      .game-layer {
-        background-color: #000;
-        width: 100vw;
-        height: 100vh;
-        position: absolute;
-        z-index: 1;
-        opacity: 0.5;
-        transition: opacity 1s;
-      }
-
-      .game-layer.-blur {
-        opacity: 0;
-      }
-
-      .game-layer.-clicked {
-        display: none;
-      }
-    `;
-
-    $head.insertBefore($style, null);
+    // Adiciona a classe -blur em cada filho do gameLayer
+    $children.forEach($item => $item.classList.add("-blur"));
   };
 
-  module.render = () => {
-    module._style();
+  module.handleTransitionEnd = (event, $component) => {
+    if (event.target.classList.contains("start-layer")) $component.remove();
+  };
+
+  module.render = content => {
+    const $gameButton = gameButton.render(content);
+    const $startLayer = startLayer.render();
+
     return `
-    <section class="game-layer"></section>
+      <div class="game-layer" onClick="gameLayer.handleClick(this)" onTransitionEnd="gameLayer.handleTransitionEnd(event, this)">
+      ${$startLayer}
+      ${$gameButton}
+      </div>
     `;
   };
 
   return {
-    render: module.render
+    render: module.render,
+    handleClick: module.handleClick,
+    handleTransitionEnd: module.handleTransitionEnd
   };
 })();

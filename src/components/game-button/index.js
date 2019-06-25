@@ -22,13 +22,13 @@ const gameButton = (function() {
         text-transform: uppercase;
         cursor: pointer;
         box-shadow: 0px 4px 8px #3a4042;
-        transition: opacity 1.5s;
-        z-index: 2;
+        transition: opacity 600ms linear;
+        
       }
 
       .game-button:hover {
         background-color: #2E8B57;
-        animation: move 1s infinite;
+        animation: move 500ms infinite;
         
       }
 
@@ -41,30 +41,15 @@ const gameButton = (function() {
       .game-button.-blur {
         opacity: 0;
       }
-
-      .game-button.-clicked {
-        display: none;
-      }
     `;
 
     $head.insertBefore($style, null);
   };
 
-  module.handleClick = $component => {
-    $component.classList.add("-blur");
-    const $gameLayer = document.querySelector(".game-layer");
-    setInterval(() => {
-      $component.classList.add("-clicked");
-      $gameLayer.classList.add("-blur");
-    }, 1000);
-
-    setInterval(() => $gameLayer.classList.add("-clicked"), 1500);
-  };
-
-  module.render = () => {
+  module.render = content => {
     module._style();
     return `
-      <button class="game-button" onclick="gameButton.handleClick(this)">Start</button>
+      <button class="game-button">${content}</button>
     `;
   };
 
