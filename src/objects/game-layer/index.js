@@ -1,33 +1,35 @@
-const gameLayer = (function() {
-  const module = {};
+// Arquivo não está sendo utilizado no momento.
 
-  module.handleClick = $component => {
-    // Seleciona os filhos do gameLayer e cria um array
-    const $children = $component.querySelectorAll("*");
+// const gameLayer = (function() {
+//   const module = {};
 
-    // Adiciona a classe -blur em cada filho do gameLayer
-    $children.forEach($item => $item.classList.add("-blur"));
-  };
+//   module.handleClick = $component => {
+//     // Seleciona os filhos do gameLayer e cria um array
+//     const $children = $component.querySelectorAll("*");
 
-  module.handleTransitionEnd = (event, $component) => {
-    if (event.target.classList.contains("start-layer")) $component.remove();
-  };
+//     // Adiciona a classe -blur em cada filho do gameLayer
+//     $children.forEach($item => $item.classList.add("-blur"));
+//   };
 
-  module.render = content => {
-    const $gameButton = gameButton.render(content);
-    const $startLayer = startLayer.render();
+//   module.handleTransitionEnd = (event, $component) => {
+//     if (event.target.classList.contains("start-layer")) $component.remove();
+//   };
 
-    return `
-      <div class="game-layer" onClick="gameLayer.handleClick(this)" onTransitionEnd="gameLayer.handleTransitionEnd(event, this)">
-      ${$startLayer}
-      ${$gameButton}
-      </div>
-    `;
-  };
+//   module.render = content => {
+//     const $gameButton = gameButton.render(content);
+//     const $startLayer = startLayer.render();
 
-  return {
-    render: module.render,
-    handleClick: module.handleClick,
-    handleTransitionEnd: module.handleTransitionEnd
-  };
-})();
+//     return `
+//       <div class="game-layer" onClick="gameLayer.handleClick(this)" onTransitionEnd="gameLayer.handleTransitionEnd(event, this)">
+//       ${$startLayer}
+//       ${$gameButton}
+//       </div>
+//     `;
+//   };
+
+//   return {
+//     render: module.render,
+//     handleClick: module.handleClick,
+//     handleTransitionEnd: module.handleTransitionEnd
+//   };
+// })();

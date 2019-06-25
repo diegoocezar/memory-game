@@ -7,14 +7,12 @@ const scoreBar = (function() {
     $style.textContent = `
       .score-bar {
         background-color: #3a4042;
-        height: 40px;
-        width: 70vw;
-        max-width: 250px;
+        height: 45px;
+        width: 100vw;
+        
         margin-right: auto;
         margin-left: auto;
-        
-        border-radius: 0 0 20px 20px;
-
+    
         text-align: center;
         font-family: 'Comfortaa', sans-serif;
       }
