@@ -10,6 +10,7 @@ const memoryCard = (function() {
     height: 115px;
     position: relative;
     margin-bottom: 10px;
+    border-radius: 20px;
 
     
   }
@@ -29,7 +30,6 @@ const memoryCard = (function() {
   
   .memory-card .card.-turned {
     background-color: #fff;
-  
   }
 
   .memory-card.-active .card {
@@ -56,6 +56,33 @@ const memoryCard = (function() {
   .card.-turned > .icon {
     position: absolute;
     transform: translateY(-14px);
+  }
+
+  .memory-card.-right {
+    box-shadow: 0 3px 6px #2ed573;
+    animation: right 300ms 1;
+
+  }
+
+  @keyframes right {
+    0%    {transform: translateY(0)}
+    25%   {transform: translateY(10%)}
+    50%   {transform: translateY(-10%)}
+    75%   {transform: translateY(10%)}
+    100%  {transform: translateY(0)}
+  }
+
+  .memory-card.-wrong {
+    box-shadow: 0 3px 6px rgb(242, 90, 112);
+    animation: wrong 300ms 1;
+  }
+
+  @keyframes wrong {
+    0%    {transform: translateX(0)}
+    25%   {transform: translateX(10%)}
+    50%   {transform: translateX(-10%)}
+    75%   {transform: translateX(10%)}
+    100%  {transform: translateX(0)}
   }
   `;
 
@@ -112,12 +139,14 @@ const memoryCard = (function() {
         scoreBar.score();
         console.log("pontuação: ", store.score);
       } else {
-        setTimeout(() => {
-          $activeMemoryCards.forEach($memoryCard => {
-            $memoryCard.classList.remove("-active");
-          });
-          store.qtdMemoryCardActive = 0;
-        }, 1100);
+        $activeMemoryCards.forEach($memoryCard => {
+          $memoryCard.classList.add("-wrong");
+          setTimeout(() => {
+            $memoryCard.classList.remove("-active", "-wrong");
+
+            store.qtdMemoryCardActive = 0;
+          }, 700);
+        });
       }
     }
   };
