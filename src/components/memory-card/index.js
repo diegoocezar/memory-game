@@ -139,8 +139,10 @@ const memoryCard = (function() {
         scoreBar.score();
         console.log("pontuação: ", store.score);
       } else {
-        store.score -= 10;
-        scoreBar.score();
+        if (store.score > 0) {
+          store.score -= 10;
+          scoreBar.score();
+        }
         $activeMemoryCards.forEach($memoryCard => {
           $memoryCard.classList.add("-wrong");
           setTimeout(() => {

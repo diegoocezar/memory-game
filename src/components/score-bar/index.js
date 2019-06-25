@@ -29,14 +29,14 @@ const scoreBar = (function() {
 
   module.updateScore = () => {
     const $score = document.querySelector(".score");
-    $score.textContent = store.score;
+    $score.textContent = `Placar: ${store.score} pontos`;
   };
 
   module.create = () => {
     module._style();
     return `
      <header class="score-bar">
-      <span class="score">0</span>
+      <span class="score">Placar: 0 pontos</span>
      </header>
     `;
   };
