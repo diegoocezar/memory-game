@@ -22,14 +22,13 @@ const gameButton = (function() {
         text-transform: uppercase;
         cursor: pointer;
         box-shadow: 0px 4px 8px #3a4042;
-        transition: opacity 600ms linear;
+        transition: opacity 600ms linear, transform 500ms linear;
         
       }
 
       .game-button:hover {
         background-color: #2E8B57;
         animation: move 500ms infinite;
-        
       }
 
       @keyframes move {
@@ -40,6 +39,8 @@ const gameButton = (function() {
 
       .game-button.-blur {
         opacity: 0;
+        animation: none;
+        transform: translate(-50%, -10%) scale(1.5);
       }
     `;
 
