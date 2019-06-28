@@ -18,7 +18,7 @@ const scoreBar = (function() {
       }
 
       .score-bar > .score {
-        line-height: 40px;
+        line-height: 45px;
         color: #fff;
         font-weight: bold;
       }
