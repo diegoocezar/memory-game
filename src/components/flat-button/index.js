@@ -11,10 +11,10 @@ const flatButton = (function() {
       .flat-button-${module._id}{
         background: ${active ? "#f25a70" : "#eae6da"};
         color: #F2F2F2;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: bold;
         width: 50vw;
-        height: 176px;
+        height: 15vh;
         text-transform: uppercase;
         border: none;
       }
