@@ -6,6 +6,7 @@
 
   const $logoCollabcode = logoCollabcode.render();
   const $titleCollabcode = titleCollabcode.render("Welcome!");
+  const $logoWrapper = logoWrapper.render($logoCollabcode, $titleCollabcode);
 
   const $labelUsername = labelCollabcode.render("Username");
   const $inputUsername = inputCollabcode.render({
@@ -31,8 +32,7 @@
     inputPlaceHolder: "&#9679; &#9679; &#9679; &#9679; &#9679; &#9679;"
   });
 
-  const $logoWrapper = logoWrapper.render($logoCollabcode, $titleCollabcode);
-  // const $gameLogo = gameLogo.render("Welcome!");
+  const $buttonCollabcode = buttonCollabcode.render("submit");
 
   $root.insertAdjacentHTML("beforeend", $signButton);
   $root.insertAdjacentHTML("beforeend", $backButton);
@@ -45,4 +45,5 @@
   $root.insertAdjacentHTML("beforeend", $inputPassword);
   $root.insertAdjacentHTML("beforeend", $labelConfirmPassword);
   $root.insertAdjacentHTML("beforeend", $inputConfirmPassword);
+  $root.insertAdjacentHTML("beforeend", $buttonCollabcode);
 })();
