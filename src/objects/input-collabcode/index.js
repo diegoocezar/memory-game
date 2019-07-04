@@ -35,7 +35,7 @@ const inputCollabcode = (function() {
 
     return `<input class="input-collabcode-${
       module._id
-    }" type="${inputType}" placeholder="${inputPlaceHolder}" />`;
+    }" type="${inputType}" placeholder="${inputPlaceHolder || ""}" />`;
   };
 
   return {
