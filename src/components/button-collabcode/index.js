@@ -7,15 +7,16 @@ const buttonCollabcode = (function() {
 
     $style.textContent = `
       .button-collabcode {
-        margin-top: 15px;
+        margin-top: 45px;
         font-size: .9rem;
         font-weight: bold;
         color: #fff;
         background-color: #f25a70;
         border-radius: 24px;
-        width: 302px;
+        width: 100%;
         height: 48px;
         text-transform: uppercase;
+        cursor: pointer;
       }
     `;
 
@@ -24,7 +25,7 @@ const buttonCollabcode = (function() {
   module.render = content => {
     module._style();
 
-    return `<button class="button-collabcode">${content}</button>`;
+    return `<input class="button-collabcode" type="submit" value="${content}">`;
   };
 
   return {

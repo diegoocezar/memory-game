@@ -9,10 +9,13 @@ const labelCollabcode = (function() {
 
     $style.textContent = `
       .label-collabcode-${module._id} {
+        display: block;
         font-size: 1rem;
         color: #3a4042;
         opacity: .5;
       }
+
+      
     `;
 
     $head.insertBefore($style, null);

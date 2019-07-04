@@ -18,7 +18,11 @@ const inputCollabcode = (function() {
         width: 100%;
         border-bottom: 2px solid rgba(58, 64, 66, .5);
         font-weight: bold;
-        margin-bottom: 30px;
+        
+      }
+
+      .input-collabcode-${module._id} + .label-collabcode-${module._id + 1} {
+        margin-top: 30px;
       }
     `;
 
