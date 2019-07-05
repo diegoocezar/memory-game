@@ -26,7 +26,7 @@ const flatButton = (function() {
     $head.insertBefore($style, null);
   };
 
-  module.render = (content = "", active = false) => {
+  module.render = ({ content = "", active = false }) => {
     module._id++;
     module._style(active);
     return `<button class='flat-button-${module._id}'>${content}</button>`;

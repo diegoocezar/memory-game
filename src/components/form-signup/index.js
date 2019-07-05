@@ -4,26 +4,25 @@ const formSignup = (function() {
   module._children = () => {
     const $labelUsername = labelCollabcode.render("Username");
     const $inputUsername = inputCollabcode.render({
-      inputType: "text",
-      inputPlaceHolder: "Name-example"
+      placeholder: "Name-example"
     });
 
     const $labelEmail = labelCollabcode.render("E-mail");
     const $inputEmail = inputCollabcode.render({
-      inputType: "email",
-      inputPlaceHolder: "example@email.com"
+      type: "email",
+      placeholder: "example@email.com"
     });
 
     const $labelPassword = labelCollabcode.render("Password");
     const $inputPassword = inputCollabcode.render({
-      inputType: "password",
-      inputPlaceHolder: "&#9679; &#9679; &#9679; &#9679; &#9679; &#9679;"
+      type: "password",
+      placeholder: "* * * * *"
     });
 
     const $labelConfirmPassword = labelCollabcode.render("Confirm password");
     const $inputConfirmPassword = inputCollabcode.render({
-      inputType: "password",
-      inputPlaceHolder: "&#9679; &#9679; &#9679; &#9679; &#9679; &#9679;"
+      type: "password",
+      placeholder: "* * * * *"
     });
 
     const $buttonCollabcode = buttonCollabcode.render("submit");

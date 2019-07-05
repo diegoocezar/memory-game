@@ -29,13 +29,13 @@ const inputCollabcode = (function() {
     $head.insertBefore($style, null);
   };
 
-  module.render = ({ inputType, inputPlaceHolder }) => {
+  module.render = ({ type = "text", placeholder = "" }) => {
     module._id++;
     module._style();
 
     return `<input class="input-collabcode-${
       module._id
-    }" type="${inputType}" placeholder="${inputPlaceHolder || ""}" />`;
+    }" type="${type}" placeholder="${placeholder}" />`;
   };
 
   return {
