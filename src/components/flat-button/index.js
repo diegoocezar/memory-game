@@ -19,6 +19,7 @@ const flatButton = (function() {
         border: none;
         box-sizing: border-box;
         padding-bottom: 1.5rem;
+        
       }
     `;
 
