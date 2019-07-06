@@ -22,9 +22,15 @@ const formLogin = (function() {
     });
 
     const $labelPassword = labelCollabcode.render("Password");
+
     const $inputPassword = inputCollabcode.render({
+      id: "password",
       type: "password",
-      placeholder: "* * * * *"
+      placeholder: "Digite sua senha"
+    });
+
+    const $eyeCollabcode = eyeCollabcode.render({
+      attrFor: "password"
     });
 
     const $linkCollabcode = linkCollabcode.render({
@@ -40,6 +46,7 @@ const formLogin = (function() {
 
       ${$labelPassword}
       ${$inputPassword}
+      ${$eyeCollabcode}
 
       ${$linkCollabcode}
 
