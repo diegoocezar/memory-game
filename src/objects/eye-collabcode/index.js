@@ -32,16 +32,16 @@ const eyeCollabcode = (function() {
     $head.insertBefore($style, null);
   };
 
-  module.handleClick = function() {
-    const $attrFor = this.getAttribute("for");
+  module.handleClick = content => {
+    const $attrFor = content.getAttribute("for");
     const $input = document.querySelector(`#${$attrFor}`);
 
     if ($input.getAttribute("type") == "password") {
       $input.setAttribute("type", "text");
-      this.classList.add("-active");
+      content.classList.add("-active");
     } else {
       $input.setAttribute("type", "password");
-      this.classList.remove("-active");
+      content.classList.remove("-active");
     }
   };
 
@@ -50,7 +50,7 @@ const eyeCollabcode = (function() {
     return `<label 
               for="${attrFor}"
               class="eye-collabcode" 
-              onclick="eyeCollabcode.handleClick.bind(this)()">Mostrar senha</label>`;
+              onclick="eyeCollabcode.handleClick(this)">Mostrar senha</label>`;
   };
 
   return {

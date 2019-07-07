@@ -26,7 +26,7 @@ const formLogin = (function() {
     const $inputPassword = inputCollabcode.render({
       id: "password",
       type: "password",
-      placeholder: "Digite sua senha"
+      placeholder: "your password"
     });
 
     const $eyeCollabcode = eyeCollabcode.render({

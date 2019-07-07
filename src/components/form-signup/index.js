@@ -15,14 +15,23 @@ const formSignup = (function() {
 
     const $labelPassword = labelCollabcode.render("Password");
     const $inputPassword = inputCollabcode.render({
+      id: "password",
       type: "password",
-      placeholder: "* * * * *"
+      placeholder: "type your password"
     });
 
     const $labelConfirmPassword = labelCollabcode.render("Confirm password");
     const $inputConfirmPassword = inputCollabcode.render({
+      id: "confirmPassword",
       type: "password",
-      placeholder: "* * * * *"
+      placeholder: "confirm your password"
+    });
+
+    const $eyeCollabcode = eyeCollabcode.render({
+      attrFor: "password"
+    });
+    const $eyeCollabcodeConfirm = eyeCollabcode.render({
+      attrFor: "confirmPassword"
     });
 
     const $buttonCollabcode = buttonCollabcode.render("submit");
@@ -36,9 +45,13 @@ const formSignup = (function() {
 
       ${$labelPassword}
       ${$inputPassword}
+      ${$eyeCollabcode}
+
 
       ${$labelConfirmPassword}
       ${$inputConfirmPassword}
+      ${$eyeCollabcodeConfirm}
+
 
       ${$buttonCollabcode}
     `;
