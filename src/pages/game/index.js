@@ -1,4 +1,4 @@
-(function() {
+const game = function() {
   const $root = document.querySelector("#root");
 
   const $cardsWrapper = createCardsWrapper();
@@ -58,4 +58,4 @@
   // $root.insertAdjacentHTML("beforeend", $gameLayer);
 
   $root.insertAdjacentHTML("beforeend", $gameButton);
-})();
+};

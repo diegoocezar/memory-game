@@ -4,29 +4,40 @@ const formSignup = (function() {
   module._children = () => {
     const $labelUsername = labelCollabcode.render("Username");
     const $inputUsername = inputCollabcode.render({
-      inputType: "text",
-      inputPlaceHolder: "Name-example"
+      placeholder: "Name-example"
     });
 
     const $labelEmail = labelCollabcode.render("E-mail");
     const $inputEmail = inputCollabcode.render({
-      inputType: "email",
-      inputPlaceHolder: "example@email.com"
+      type: "email",
+      placeholder: "example@email.com"
     });
 
     const $labelPassword = labelCollabcode.render("Password");
     const $inputPassword = inputCollabcode.render({
-      inputType: "password",
-      inputPlaceHolder: "&#9679; &#9679; &#9679; &#9679; &#9679; &#9679;"
+      id: "password",
+      type: "password",
+      placeholder: "type your password"
     });
 
     const $labelConfirmPassword = labelCollabcode.render("Confirm password");
     const $inputConfirmPassword = inputCollabcode.render({
-      inputType: "password",
-      inputPlaceHolder: "&#9679; &#9679; &#9679; &#9679; &#9679; &#9679;"
+      id: "confirmPassword",
+      type: "password",
+      placeholder: "confirm your password"
     });
 
-    const $buttonCollabcode = buttonCollabcode.render("submit");
+    const $eyeCollabcode = eyeCollabcode.render({
+      attrFor: "password"
+    });
+    const $eyeCollabcodeConfirm = eyeCollabcode.render({
+      attrFor: "confirmPassword"
+    });
+
+    const $buttonCollabcode = buttonCollabcode.render({
+      content: "submit",
+      path: "login"
+    });
 
     return `
       ${$labelUsername}
@@ -37,9 +48,13 @@ const formSignup = (function() {
 
       ${$labelPassword}
       ${$inputPassword}
+      ${$eyeCollabcode}
+
 
       ${$labelConfirmPassword}
       ${$inputConfirmPassword}
+      ${$eyeCollabcodeConfirm}
+
 
       ${$buttonCollabcode}
     `;
