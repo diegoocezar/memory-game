@@ -4,7 +4,8 @@
   path[""] = login;
   path["#/login"] = login;
   path["#/signup"] = signup;
-  // path["#/game"] = game;
+  // path["#/"] = page404;
+  path["#/game"] = game;
 
   path[hash]();
 })();

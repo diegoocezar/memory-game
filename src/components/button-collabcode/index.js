@@ -26,8 +26,9 @@ const buttonCollabcode = (function() {
   module.handleClick = (event, path) => {
     event.preventDefault();
     window.location.hash = `#/${path}`;
+    window.location.reload();
   };
-  module.render = ({ content = "", event, path }) => {
+  module.render = ({ content = "", path }) => {
     module._style();
 
     return `<input class="button-collabcode" 
