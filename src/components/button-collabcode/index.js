@@ -22,13 +22,21 @@ const buttonCollabcode = (function() {
 
     $head.insertBefore($style, null);
   };
-  module.render = content => {
+
+  module.handleClick = (event, path) => {
+    event.preventDefault();
+    window.location.hash = `#/${path}`;
+  };
+  module.render = ({ content = "", event, path }) => {
     module._style();
 
-    return `<input class="button-collabcode" type="submit" value="${content}">`;
+    return `<input class="button-collabcode" 
+            type="submit" value="${content}"
+            onclick="buttonCollabcode.handleClick(event, '${path}')">`;
   };
 
   return {
-    render: module.render
+    render: module.render,
+    handleClick: module.handleClick
   };
 })();

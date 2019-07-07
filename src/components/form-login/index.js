@@ -38,7 +38,10 @@ const formLogin = (function() {
       content: "Forget password ?"
     });
 
-    const $buttonLogin = buttonCollabcode.render("login");
+    const $buttonLogin = buttonCollabcode.render({
+      content: "login",
+      path: "game"
+    });
 
     return `
       ${$labelEmail}

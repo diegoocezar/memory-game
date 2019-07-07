@@ -34,7 +34,10 @@ const formSignup = (function() {
       attrFor: "confirmPassword"
     });
 
-    const $buttonCollabcode = buttonCollabcode.render("submit");
+    const $buttonCollabcode = buttonCollabcode.render({
+      content: "submit",
+      path: "login"
+    });
 
     return `
       ${$labelUsername}
