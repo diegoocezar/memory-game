@@ -7,7 +7,15 @@ const game = function() {
   const $startLayer = startLayer.render();
   // const $gameLayer = gameLayer.render("Start");
 
-  const $gameButton = gameButton.render("-start", "start");
+  const $startButton = gameButton.render({
+    buttonClass: "-start",
+    content: "start"
+  });
+  const $backButton = gameButton.render({
+    buttonClass: "-return",
+    content: "back",
+    path: "login"
+  });
 
   let $memoryCard = [];
 
@@ -57,5 +65,6 @@ const game = function() {
   $root.insertAdjacentHTML("beforeend", $startLayer);
   // $root.insertAdjacentHTML("beforeend", $gameLayer);
 
-  $root.insertAdjacentHTML("beforeend", $gameButton);
+  $root.insertAdjacentHTML("beforeend", $startButton);
+  $root.insertAdjacentHTML("beforeend", $backButton);
 };

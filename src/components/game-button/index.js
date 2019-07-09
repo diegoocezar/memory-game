@@ -1,12 +1,14 @@
 const gameButton = (function() {
   const module = {};
 
+  module._id = 0;
+
   module._style = () => {
     const $head = document.querySelector("head");
     const $style = document.createElement("style");
     $style.textContent = `
 
-      .game-button {
+      .game-button-${module._id} {
         width: 80px;
         height: 80px;
         position: absolute;
@@ -21,59 +23,74 @@ const gameButton = (function() {
         transition: opacity 600ms linear, transform 500ms linear;
       }
 
-      .game-button.-start {
+      .game-button-${module._id}.-start {
+        bottom: 70%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #27ae60;
+      }
+      
+      .game-button-${module._id}.-return {
         bottom: 50%;
         left: 50%;
         transform: translateX(-50%);
-        background-color: #2ed573;
+        background-color: #e67e22;
       }
 
-      // Em breve aplicarei  novo botão
-      // .game-button.-restart {
-      //   display: none;
-      //   top: 2px;
-      //   left: 5px;
-      //   width: 100px;
-      //   height: 40px;
-      //   font-size: 1rem;
-      //   background-color: #e67e22;
-      // }
+      .game-button-${module._id}.-return:hover {
+        background-color: #ff7f50;
+        animation: move 800ms infinite;
+      }
       
-      .game-button.-start:hover {
+      .game-button-${module._id}.-start:hover {
         background-color: #2E8B57;
         animation: move 800ms infinite;
       }
   
       @keyframes move {
-        o%   { bottom: 50%;}
-        50%  { bottom: 52%;}
-        100% { bottom: 50%;}
+        o%   { transform: translateX(-50%);}
+        50%  { transform: translateX(-50%) translateY(-10%);}
+        100% { transform: translateX(-50%);}
       }
 
-      .game-button.-blur {
+      .game-button-${module._id}.-blur {
         opacity: 0;
         animation: none;
-        transform: translate(-50%, -10%) scale(1.5);
+        
       }
     `;
 
     $head.insertBefore($style, null);
   };
 
-  module.handleClick = $component => {
-    const $startLayer = document.querySelector(".start-layer");
-    $component.classList.add("-blur");
-    $startLayer.classList.add("-blur");
-    setTimeout(() => {
-      $component.remove();
-      $startLayer.remove();
-    }, 800);
+  module.handleClick = ($component, path, event) => {
+    if (path != "undefined") {
+      window.location.hash = `#/${path}`;
+      window.location.reload();
+    } else {
+      event.preventDefault();
+      const $startLayer = document.querySelector(".start-layer");
+      $component.classList.remove("-button");
+      const $button = document.querySelector(".-button");
+
+      $component.classList.add("-blur");
+      $button.classList.add("-blur");
+      $startLayer.classList.add("-blur");
+      setTimeout(() => {
+        $component.remove();
+        $button.remove();
+        $startLayer.remove();
+      }, 800);
+    }
   };
 
-  module.render = (typeOfButton, content) => {
+  module.render = ({ buttonClass, content, path }) => {
+    module._id++;
     module._style();
     return `
-      <button class="game-button ${typeOfButton}" onClick="gameButton.handleClick(this)">${content}</button>
+      <input class="game-button-${
+        module._id
+      } ${buttonClass} -button" type="submit" value="${content}" onClick="gameButton.handleClick(this, '${path}', event)">
     `;
   };
 
