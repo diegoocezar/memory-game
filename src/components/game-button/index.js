@@ -30,7 +30,7 @@ const gameButton = (function() {
         background-color: #27ae60;
       }
       
-      .game-button-${module._id}.-return {
+      .game-button-${module._id}.-back {
         bottom: 50%;
         left: 50%;
         transform: translateX(-50%);

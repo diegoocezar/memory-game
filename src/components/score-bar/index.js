@@ -13,7 +13,7 @@ const scoreBar = (function() {
         margin-right: auto;
         margin-left: auto;
     
-        text-align: center;
+        text-align: right;
         font-family: 'Comfortaa', sans-serif;
       }
 
@@ -21,6 +21,7 @@ const scoreBar = (function() {
         line-height: 45px;
         color: #fff;
         font-weight: bold;
+        margin-right:10px;
       }
     `;
 

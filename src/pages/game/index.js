@@ -4,6 +4,15 @@ const game = function() {
   const $cardsWrapper = createCardsWrapper();
   const createMemoryCard = memoryCard.create();
   const $scoreBar = scoreBar.create();
+  const $exitButton = buttonBar.render({
+    content: "exit",
+    buttonClass: "-exit",
+    path: "login"
+  });
+  const $restartButton = buttonBar.render({
+    content: "restart",
+    buttonClass: "-restart"
+  });
   const $startLayer = startLayer.render();
   // const $gameLayer = gameLayer.render("Start");
 
@@ -12,7 +21,7 @@ const game = function() {
     content: "start"
   });
   const $backButton = gameButton.render({
-    buttonClass: "-return",
+    buttonClass: "-back",
     content: "back",
     path: "login"
   });
@@ -61,6 +70,8 @@ const game = function() {
   // $cardsWrapper.insertAdjacentHTML("beforeend", $memoryCardC);
 
   $root.insertAdjacentHTML("afterbegin", $scoreBar);
+  $root.insertAdjacentHTML("beforeend", $exitButton);
+  $root.insertAdjacentHTML("beforeend", $restartButton);
   $root.insertAdjacentElement("beforeend", $cardsWrapper);
   $root.insertAdjacentHTML("beforeend", $startLayer);
   // $root.insertAdjacentHTML("beforeend", $gameLayer);
