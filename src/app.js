@@ -4,8 +4,10 @@
   path[""] = login;
   path["#/login"] = login;
   path["#/signup"] = signup;
-  // path["#/"] = page404;
   path["#/game"] = game;
+  path["#/404"] = page404;
 
-  path[hash]();
+  //Testa se o hash é true ou false, se for undefined retorna false e vai
+  //para o erro
+  path[hash] ? path[hash]() : path["#/404"]();
 })();
