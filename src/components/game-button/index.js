@@ -24,14 +24,14 @@ const gameButton = (function() {
       }
 
       .game-button-${module._id}.-start {
-        bottom: 70%;
+        bottom: 55%;
         left: 50%;
         transform: translateX(-50%);
         background-color: #27ae60;
       }
       
       .game-button-${module._id}.-back {
-        bottom: 50%;
+        bottom: 35%;
         left: 50%;
         transform: translateX(-50%);
         background-color: #e67e22;
