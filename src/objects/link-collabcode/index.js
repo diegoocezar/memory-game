@@ -14,7 +14,7 @@ const linkCollabcode = (function() {
         text-decoration: none;
         font-size: 14px;
         margin-top: 45px;
-        margin-bottom: 60px;
+        margin-bottom: 40px;
       }
     `;
 

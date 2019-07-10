@@ -11,11 +11,12 @@ const eyeCollabcode = (function() {
         background-repeat: no-repeat;
         background-position: center;
         display: block;
+        position: absolute;
         text-indent: -9999px;
         width: 30px;
         height: 20px;
         opacity: .5;
-        margin-left: 87%;
+        right: 40px;
         transform: translateY(-160%);
 
       }

@@ -2,11 +2,6 @@ const formSignup = (function() {
   const module = {};
 
   module._children = () => {
-    const $labelUsername = labelCollabcode.render("Username");
-    const $inputUsername = inputCollabcode.render({
-      placeholder: "Name-example"
-    });
-
     const $labelEmail = labelCollabcode.render("E-mail");
     const $inputEmail = inputCollabcode.render({
       type: "email",
@@ -40,18 +35,19 @@ const formSignup = (function() {
     });
 
     return `
-      ${$labelUsername}
-      ${$inputUsername}
-
+     
       ${$labelEmail}
+      
       ${$inputEmail}
 
       ${$labelPassword}
+      
       ${$inputPassword}
       ${$eyeCollabcode}
 
 
       ${$labelConfirmPassword}
+      
       ${$inputConfirmPassword}
       ${$eyeCollabcodeConfirm}
 

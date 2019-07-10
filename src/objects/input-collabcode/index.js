@@ -21,15 +21,20 @@ const inputCollabcode = (function() {
         
       }
 
-      .input-collabcode-${module._id} + .label-collabcode-${module._id + 1} {
-        margin-top: 30px;
+      .label-collabcode-${module._id + 1} {
+        margin-top: 35px;
       }
     `;
 
     $head.insertBefore($style, null);
   };
 
-  module.render = ({ id = "", type = "text", placeholder = "" }) => {
+  module.render = ({
+    id = "",
+    type = "text",
+    placeholder = "",
+    required = "false"
+  }) => {
     module._id++;
     module._style();
 
@@ -37,7 +42,8 @@ const inputCollabcode = (function() {
             id="${id}"
             class="input-collabcode-${module._id}" 
             type="${type}" 
-            placeholder="${placeholder}" />`;
+            placeholder="${placeholder}"
+            required="${required}" />`;
   };
 
   return {
